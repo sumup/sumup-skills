@@ -1,0 +1,13 @@
+{
+  "name": "sumup",
+  "owner": {
+    "name": "SumUp"
+  },
+  "plugins": [
+    {
+      "name": "sumup",
+      "source": "./",
+      "description": "Skills for SumUp payment integrations"
+    }
+  ]
+}

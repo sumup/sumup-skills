@@ -1,0 +1,34 @@
+# SumUp References Index
+
+Use these entrypoints (`README.md`) based on requested stack and flow.
+
+## Server SDKs
+
+- `references/nodejs/README.md`
+- `references/go/README.md`
+- `references/python/README.md`
+- `references/java/README.md`
+- `references/php/README.md`
+- `references/rust/README.md`
+- `references/dotnet/README.md`
+
+## Terminal / Card-Present Integrations
+
+- `references/android-reader-sdk/README.md`
+- `references/ios-terminal-sdk/README.md`
+- `references/android-tap-to-pay-sdk/README.md`
+- `references/cloud-api/README.md`
+- `references/payment-switch/README.md`
+
+## Online / Card-Not-Present Integrations
+
+- `references/checkout-widget/README.md`
+- `references/swift-checkout-sdk/README.md`
+- `references/react-native-sdk/README.md`
+- `references/checkouts-api/README.md`
+- `references/apm/README.md`
+- `references/webhooks-3ds/README.md`
+
+## General Flow
+
+- `references/checkout-playbook.md`

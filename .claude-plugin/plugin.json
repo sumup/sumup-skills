@@ -1,0 +1,8 @@
+{
+  "name": "sumup",
+  "description": "Skills for SumUp payment integrations across terminal and online checkout flows",
+  "version": "1.0.0",
+  "author": {
+    "name": "SumUp"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "sumup",
+  "version": "1.0.0",
+  "description": "Skills for SumUp payment integrations across terminal and online checkout flows",
+  "author": {
+    "name": "SumUp",
+    "url": "https://developer.sumup.com"
+  },
+  "keywords": [
+    "sumup",
+    "payments",
+    "checkout",
+    "terminal",
+    "online",
+    "api",
+    "sdk",
+    "card-present",
+    "card-not-present"
+  ],
+  "logo": "skills/sumup/assets/small-logo.svg"
+}

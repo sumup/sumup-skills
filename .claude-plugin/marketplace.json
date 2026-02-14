@@ -1,0 +1,15 @@
+{
+  "$schema": "https://code.claude.com/schemas/marketplace.json",
+  "name": "sumup",
+  "owner": {
+    "name": "SumUp",
+    "url": "https://developer.sumup.com"
+  },
+  "plugins": [
+    {
+      "name": "sumup",
+      "source": "./",
+      "description": "Skills for SumUp payment integrations"
+    }
+  ]
+}
