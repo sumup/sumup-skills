@@ -36,7 +36,6 @@ Use these entrypoints (`README.md`) based on requested stack and flow.
 
 - `references/checkout-playbook.md`
 
-
 ## Reading Order
 
 1. This file to choose the integration path.

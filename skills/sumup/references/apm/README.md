@@ -15,8 +15,6 @@ Apple Pay, Google Pay, Bancontact, Blik, Boleto, EPS, iDeal, MyBank, PIX, Przele
 - Card Widget supports APM rendering and can filter methods via `onPaymentMethodsLoad`.
 - Country/merchant setup determines method availability.
 
-
-
 ## Reading Order
 
 1. This file.

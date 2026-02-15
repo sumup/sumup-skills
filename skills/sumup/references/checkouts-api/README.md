@@ -22,8 +22,6 @@ curl -X POST https://api.sumup.com/v0.1/checkouts \
 - Prefer `references/checkout-widget/README.md` for embedded payment UI.
 - Use `references/webhooks-3ds/README.md` for async confirmation and 3DS handling patterns.
 
-
-
 ## Reading Order
 
 1. This file.

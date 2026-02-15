@@ -16,8 +16,6 @@ Use Payment Switch when handing off from your app to the SumUp app for payment.
 - iOS URL scheme integration: sumup/sumup-ios-url-scheme
 - Android API integration: sumup/sumup-android-api
 
-
-
 ## Reading Order
 
 1. This file.

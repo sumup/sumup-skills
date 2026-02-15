@@ -45,8 +45,6 @@ let checkout = client.readers().create_checkout(
 ).await?;
 ```
 
-
-
 ## Reading Order
 
 1. This file.

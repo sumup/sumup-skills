@@ -35,8 +35,6 @@ tapToPay.startPayment(
 tapToPay.tearDown()
 ```
 
-
-
 ## Reading Order
 
 1. This file.

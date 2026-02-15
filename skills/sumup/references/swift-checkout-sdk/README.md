@@ -14,8 +14,6 @@ Use this integration path for fast online checkout experiences with Apple Pay/Go
 
 Also see `references/checkout-widget/README.md` and `references/webhooks-3ds/README.md`.
 
-
-
 ## Reading Order
 
 1. This file.

@@ -28,8 +28,6 @@ await client.readers.create_checkout(
 )
 ```
 
-
-
 ## Reading Order
 
 1. This file.

@@ -31,8 +31,6 @@ curl -X POST \
 
 Use webhook/API status checks for final transaction state.
 
-
-
 ## Reading Order
 
 1. This file.

@@ -18,8 +18,6 @@
 - Treat webhook as signal; re-fetch and verify checkout state from API.
 - Implement idempotent processing for retries.
 
-
-
 ## Reading Order
 
 1. This file.
