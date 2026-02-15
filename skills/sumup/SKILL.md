@@ -16,6 +16,19 @@ Use this skill to implement end-to-end SumUp checkouts for:
 - Terminal payments (native mobile SDKs, Cloud API for Solo, or Payment Switch)
 - Online payments (Card Widget and API-orchestrated checkout flow)
 
+## Quick Decision Tree
+
+```
+Need to accept a payment?
+├─ In-person (card-present) → terminal
+│  ├─ Native mobile app + direct reader flow → terminal/mobile (iOS SDK or Android Reader SDK)
+│  ├─ Non-native POS/backend controls Solo reader → terminal/platform-agnostic (Cloud API)
+│  └─ Legacy app handoff to SumUp app explicitly required → terminal/legacy-lightweight (Payment Switch)
+└─ Online (card-not-present) → online
+   ├─ Fastest secure integration, hosted/embedded UI acceptable → online/low-complexity (Card Widget)
+   └─ Custom orchestration and async lifecycle handling required → online/custom (Checkouts API + 3DS + webhooks)
+```
+
 ## Start Here
 
 1. Classify the requested flow:
