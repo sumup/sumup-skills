@@ -31,6 +31,16 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install uv
 
+      - name: Install Claude Code
+        run: |
+          curl -fsSL https://claude.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Validate Claude plugin
+        run: |
+          set -euo pipefail
+          claude plugin validate .
+
       - name: Validate all skills
         run: |
           set -euo pipefail

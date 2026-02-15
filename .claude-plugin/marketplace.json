@@ -1,6 +1,9 @@
 {
   "$schema": "https://code.claude.com/schemas/marketplace.json",
   "name": "sumup",
+  "metadata": {
+    "description": "Official SumUp marketplace with skills for payment integrations."
+  },
   "owner": {
     "name": "SumUp",
     "url": "https://developer.sumup.com"
@@ -8,8 +11,13 @@
   "plugins": [
     {
       "name": "sumup",
+      "description": "Skills for SumUp payment integrations",
       "source": "./",
-      "description": "Skills for SumUp payment integrations"
+      "version": "1.0.0",
+      "repository": "https://github.com/sumup/sumup-skills",
+      "homepage": "https://developer.sumup.com/tools/llms/agent-skills",
+      "license": "Apache-2.0",
+      "keywords": ["payments"]
     }
   ]
 }
