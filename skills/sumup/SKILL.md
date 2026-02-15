@@ -1,6 +1,7 @@
 ---
 name: sumup
 description: Guide for building SumUp payment integrations that cover both terminal (card-present) and online (card-not-present) checkout flows using SumUp SDKs and APIs. Use when implementing or debugging SumUp checkout creation, payment processing, reader pairing, Card Widget integrations, Cloud API reader checkouts, or authorization setup with API keys/OAuth and Affiliate Keys.
+license: Apache-2.0
 ---
 
 # SumUp Checkout Integrations
