@@ -9,6 +9,8 @@
 2. Call Readers create endpoint with pairing code.
 3. Store returned `reader_id`.
 
+If you do not have a physical reader yet, use `https://virtual-solo.sumup.com/` with a sandbox merchant account to test Cloud API flows.
+
 ## Start checkout on reader
 
 ```bash

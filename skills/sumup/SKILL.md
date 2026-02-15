@@ -46,7 +46,7 @@ Need to accept a payment?
    - API key or OAuth access token
    - Affiliate Key for card-present flows
    - Merchant code and currency alignment
-   - Test account for non-production testing
+   - Sandbox merchant account for non-production testing
 4. Ask for missing critical inputs before implementation:
    - integration channel (mobile SDK, Cloud API, Card Widget, or API-orchestrated)
    - target market/currency and merchant code

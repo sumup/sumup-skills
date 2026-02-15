@@ -27,7 +27,7 @@
 
 ## 2. Shared Prerequisites
 
-- Merchant account (or test account).
+- Merchant account (or sandbox merchant account).
 - Authorization for APIs:
   - API key for single-merchant integrations.
   - OAuth 2.0 for multi-merchant/delegated integrations.
