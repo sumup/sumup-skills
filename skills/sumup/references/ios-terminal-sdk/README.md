@@ -28,8 +28,6 @@ request.foreignTransactionID = UUID().uuidString
 SumUpSDK.checkout(with: request, from: self) { result, error in }
 ```
 
-
-
 ## Reading Order
 
 1. This file.

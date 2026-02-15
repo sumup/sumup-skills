@@ -24,8 +24,6 @@ await presentPaymentSheet();
 
 Create checkout on backend first, then pass `checkoutId` to the app.
 
-
-
 ## Reading Order
 
 1. This file.

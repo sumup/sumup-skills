@@ -26,8 +26,6 @@ await client.readers.createCheckout(merchantCode, readerId, {
 });
 ```
 
-
-
 ## Reading Order
 
 1. This file.

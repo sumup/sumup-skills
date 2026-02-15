@@ -19,7 +19,7 @@ Use this skill to implement end-to-end SumUp checkouts for:
 
 ## Quick Decision Tree
 
-```
+```text
 Need to accept a payment?
 ├─ In-person (card-present) → terminal
 │  ├─ Native mobile app + direct reader flow → terminal/mobile (iOS SDK or Android Reader SDK)

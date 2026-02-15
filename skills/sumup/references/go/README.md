@@ -30,8 +30,6 @@ checkout, err := client.Checkouts.Create(ctx, sumup.CheckoutsCreateParams{
 })
 ```
 
-
-
 ## Reading Order
 
 1. This file.

@@ -29,8 +29,6 @@ SumUpPayment payment = SumUpPayment.builder()
 SumUpAPI.checkout(this, payment, 2);
 ```
 
-
-
 ## Reading Order
 
 1. This file.

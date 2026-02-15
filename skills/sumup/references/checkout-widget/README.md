@@ -49,8 +49,6 @@ curl -X POST https://api.sumup.com/v0.1/checkouts \
 
 Always verify checkout status on backend after client callbacks.
 
-
-
 ## Reading Order
 
 1. This file.

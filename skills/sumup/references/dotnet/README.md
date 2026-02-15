@@ -34,8 +34,6 @@ var readerCheckout = await client.Readers.CreateCheckoutAsync(
     });
 ```
 
-
-
 ## Reading Order
 
 1. This file.

@@ -30,8 +30,6 @@ var checkout = client.readers().createReaderCheckout(
 );
 ```
 
-
-
 ## Reading Order
 
 1. This file.
