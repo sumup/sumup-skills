@@ -23,3 +23,18 @@ await presentPaymentSheet();
 ```
 
 Create checkout on backend first, then pass `checkoutId` to the app.
+
+
+
+## Reading Order
+
+1. This file.
+2. `references/checkouts-api/README.md` for backend checkout creation.
+3. `references/webhooks-3ds/README.md` for async confirmation and idempotency.
+
+## See Also
+
+- `references/checkout-widget/README.md`
+- `references/checkouts-api/README.md`
+- `references/webhooks-3ds/README.md`
+- `references/apm/README.md`

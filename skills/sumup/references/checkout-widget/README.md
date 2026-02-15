@@ -48,3 +48,24 @@ curl -X POST https://api.sumup.com/v0.1/checkouts \
 ```
 
 Always verify checkout status on backend after client callbacks.
+
+
+
+## Reading Order
+
+1. This file.
+2. `references/checkouts-api/README.md` for checkout creation/retrieval.
+3. `references/webhooks-3ds/README.md` for async status confirmation and 3DS.
+
+## See Also
+
+- `references/checkouts-api/README.md`
+- `references/webhooks-3ds/README.md`
+- `references/apm/README.md`
+- `references/nodejs/README.md`
+- `references/go/README.md`
+- `references/python/README.md`
+- `references/java/README.md`
+- `references/php/README.md`
+- `references/rust/README.md`
+- `references/dotnet/README.md`

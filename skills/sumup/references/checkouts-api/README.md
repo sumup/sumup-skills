@@ -21,3 +21,24 @@ curl -X POST https://api.sumup.com/v0.1/checkouts \
 
 - Prefer `references/checkout-widget/README.md` for embedded payment UI.
 - Use `references/webhooks-3ds/README.md` for async confirmation and 3DS handling patterns.
+
+
+
+## Reading Order
+
+1. This file.
+2. `references/checkout-widget/README.md` if using hosted or embedded checkout UI.
+3. `references/webhooks-3ds/README.md` to finalize async lifecycle handling.
+
+## See Also
+
+- `references/checkout-widget/README.md`
+- `references/webhooks-3ds/README.md`
+- `references/apm/README.md`
+- `references/nodejs/README.md`
+- `references/go/README.md`
+- `references/python/README.md`
+- `references/java/README.md`
+- `references/php/README.md`
+- `references/rust/README.md`
+- `references/dotnet/README.md`

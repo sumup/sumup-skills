@@ -35,3 +35,18 @@ Use these entrypoints (`README.md`) based on requested stack and flow.
 ## General Flow
 
 - `references/checkout-playbook.md`
+
+
+## Reading Order
+
+1. This file to choose the integration path.
+2. Open exactly one target reference README for implementation details.
+3. Use `references/webhooks-3ds/README.md` whenever async status confirmation is needed.
+
+## See Also
+
+- `references/checkout-playbook.md`
+- `references/cloud-api/README.md`
+- `references/checkout-widget/README.md`
+- `references/checkouts-api/README.md`
+- `references/webhooks-3ds/README.md`

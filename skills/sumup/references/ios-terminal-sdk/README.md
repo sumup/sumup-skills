@@ -27,3 +27,19 @@ let request = CheckoutRequest(
 request.foreignTransactionID = UUID().uuidString
 SumUpSDK.checkout(with: request, from: self) { result, error in }
 ```
+
+
+
+## Reading Order
+
+1. This file.
+2. `references/cloud-api/README.md` for backend-controlled terminal flow alternatives.
+3. `references/payment-switch/README.md` only for explicit legacy app-handoff cases.
+
+## See Also
+
+- `references/android-reader-sdk/README.md`
+- `references/android-tap-to-pay-sdk/README.md`
+- `references/cloud-api/README.md`
+- `references/payment-switch/README.md`
+- `references/checkout-playbook.md`

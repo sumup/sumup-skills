@@ -28,3 +28,19 @@ SumUpPayment payment = SumUpPayment.builder()
   .build();
 SumUpAPI.checkout(this, payment, 2);
 ```
+
+
+
+## Reading Order
+
+1. This file.
+2. `references/cloud-api/README.md` for backend-driven terminal alternatives.
+3. `references/payment-switch/README.md` only for explicit legacy handoff constraints.
+
+## See Also
+
+- `references/ios-terminal-sdk/README.md`
+- `references/android-tap-to-pay-sdk/README.md`
+- `references/cloud-api/README.md`
+- `references/payment-switch/README.md`
+- `references/checkout-playbook.md`

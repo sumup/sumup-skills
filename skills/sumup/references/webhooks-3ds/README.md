@@ -17,3 +17,18 @@
 - Respond quickly with empty `2xx`.
 - Treat webhook as signal; re-fetch and verify checkout state from API.
 - Implement idempotent processing for retries.
+
+
+
+## Reading Order
+
+1. This file.
+2. `references/checkouts-api/README.md` for checkout lifecycle API calls.
+3. `references/checkout-widget/README.md` for frontend callback integration.
+
+## See Also
+
+- `references/checkouts-api/README.md`
+- `references/checkout-widget/README.md`
+- `references/react-native-sdk/README.md`
+- `references/swift-checkout-sdk/README.md`

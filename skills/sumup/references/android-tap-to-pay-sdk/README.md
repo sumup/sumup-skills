@@ -34,3 +34,18 @@ tapToPay.startPayment(
 ```kotlin
 tapToPay.tearDown()
 ```
+
+
+
+## Reading Order
+
+1. This file.
+2. `references/android-reader-sdk/README.md` for reader-based Android terminal flows.
+3. `references/cloud-api/README.md` for backend-controlled Solo workflows.
+
+## See Also
+
+- `references/android-reader-sdk/README.md`
+- `references/ios-terminal-sdk/README.md`
+- `references/cloud-api/README.md`
+- `references/checkout-playbook.md`

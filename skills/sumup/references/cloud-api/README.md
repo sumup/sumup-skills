@@ -30,3 +30,19 @@ curl -X POST \
 ```
 
 Use webhook/API status checks for final transaction state.
+
+
+
+## Reading Order
+
+1. This file.
+2. `references/webhooks-3ds/README.md` for async verification patterns.
+3. `references/checkout-playbook.md` for decision matrix and safeguards.
+
+## See Also
+
+- `references/android-reader-sdk/README.md`
+- `references/ios-terminal-sdk/README.md`
+- `references/android-tap-to-pay-sdk/README.md`
+- `references/payment-switch/README.md`
+- `references/checkout-playbook.md`
