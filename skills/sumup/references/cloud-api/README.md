@@ -1,5 +1,8 @@
 # Cloud API (Terminal / Solo)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/terminal-payments/cloud-api/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 ## Pair reader (high-level)
 
 1. Generate pairing code on logged-out Solo (`Connections -> API -> Connect`).

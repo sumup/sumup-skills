@@ -5,6 +5,12 @@ description: Guide for building SumUp payment integrations that cover both termi
 
 # SumUp Checkout Integrations
 
+Knowledge and APIs can change. Always prefer the latest SumUp docs in markdown format over stale memory.
+
+- Docs root: `https://developer.sumup.com/`
+- LLM entrypoint: `https://developer.sumup.com/llms.txt`
+- Markdown page format example: `https://developer.sumup.com/terminal-payments/cloud-api/index.md`
+
 Use this skill to implement end-to-end SumUp checkouts for:
 
 - Terminal payments (native mobile SDKs, Cloud API for Solo, or Payment Switch)
@@ -27,20 +33,28 @@ Use this skill to implement end-to-end SumUp checkouts for:
    - Affiliate Key for card-present flows
    - Merchant code and currency alignment
    - Test account for non-production testing
-4. Apply the implementation pattern from `references/checkout-playbook.md`.
-5. Load references from `references/README.md` and select the matching entrypoint:
-   - Server SDKs: `references/nodejs/README.md`, `references/go/README.md`, `references/python/README.md`, `references/java/README.md`, `references/php/README.md`, `references/rust/README.md`, `references/dotnet/README.md`
-   - Terminal paths: `references/android-reader-sdk/README.md`, `references/ios-terminal-sdk/README.md`, `references/android-tap-to-pay-sdk/README.md`, `references/cloud-api/README.md`, `references/payment-switch/README.md`
-   - Online paths: `references/checkout-widget/README.md`, `references/swift-checkout-sdk/README.md`, `references/react-native-sdk/README.md`, `references/checkouts-api/README.md`, `references/apm/README.md`, `references/webhooks-3ds/README.md`
+4. Ask for missing critical inputs before implementation:
+   - integration channel (mobile SDK, Cloud API, Card Widget, or API-orchestrated)
+   - target market/currency and merchant code
+   - auth model (API key vs OAuth)
+   - webhook endpoint and idempotency strategy
+   - existing constraints (legacy compatibility, migration, PCI scope)
+5. Apply the implementation pattern from `references/checkout-playbook.md`.
+6. Use `references/README.md` and open only the single most relevant entrypoint for the request.
 
-## Required Rules
+## Non-Negotiable Rules
 
 - Keep secret API keys and OAuth client secrets server-side only.
+- Never handle raw PAN/card data directly.
 - Create online checkouts server-to-server.
 - Prefer Card Widget and SDK-provided checkout experiences to avoid handling raw card details.
 - For card-present integrations, include the Affiliate Key and ensure app identifiers match the key setup.
+- Avoid Payment Switch unless the user explicitly requests it or has a hard legacy constraint.
 - Use unique transaction references (`checkout_reference`, `foreignTransactionId`, or equivalent) to prevent duplicates and improve reconciliation.
+- Do not use endpoints marked as deprecated.
+- Prefer endpoints that accept `merchant_code` as an explicit parameter when equivalent alternatives exist.
 - Treat webhook events as notifications only; verify state through API reads.
+- After a widget/client callback reports success, always verify final checkout state on the backend before confirming order/payment success.
 
 ## Implementation Workflow
 
@@ -57,6 +71,16 @@ Use this skill to implement end-to-end SumUp checkouts for:
    - webhook delivery + API verification
 5. Return normalized result (status, transaction identifiers, retry guidance).
 
+## Required Response Contract
+
+Every solution should state:
+
+1. Chosen integration path and why.
+2. End-to-end sequence (server, client, webhook/async verification).
+3. Exact endpoint set, confirming no deprecated endpoints and preference for `merchant_code`-accepting endpoints.
+4. Failure and retry handling (timeouts, duplicate refs, webhook retries).
+5. Test plan for success, deliberate failure, and reconciliation checks.
+
 ## Validation Checklist
 
 - Test and capture both successful payment and deliberate failure case (`amount = 11` in test mode).
@@ -67,5 +91,5 @@ Use this skill to implement end-to-end SumUp checkouts for:
 
 ## References
 
-- Use `references/checkout-playbook.md` for concrete flow-by-flow guidance and endpoint mapping.
-- Use `references/README.md` as the main index for all SDK and integration-path entrypoints.
+- Use `references/README.md` to pick the right reference file.
+- Each reference file includes its own canonical markdown docs URL. Prefer that URL over stale memory.

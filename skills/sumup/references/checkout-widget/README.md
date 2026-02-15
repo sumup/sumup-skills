@@ -1,5 +1,8 @@
 # Checkout Widget (Online)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/checkouts/card-widget/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 ## Server: create checkout (via server SDK)
 
 Pick the server SDK for your backend language and create the checkout there:

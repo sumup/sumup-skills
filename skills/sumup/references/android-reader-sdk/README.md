@@ -1,5 +1,8 @@
 # Android Reader SDK (Card-present)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/terminal-payments/sdks/android-sdk/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 ## Init + login
 
 ```java

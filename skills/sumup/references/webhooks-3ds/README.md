@@ -1,5 +1,8 @@
 # Webhooks and 3DS
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/webhooks/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 ## 3DS flow
 
 1. Include `redirect_url` on checkout creation.

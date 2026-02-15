@@ -1,5 +1,8 @@
 # PHP SDK
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/sdks/php/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 Use `sumup/sumup-php`.
 
 ## Online: create checkout

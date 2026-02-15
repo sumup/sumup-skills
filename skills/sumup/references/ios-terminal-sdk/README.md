@@ -1,5 +1,8 @@
 # iOS Terminal SDK (Card-present)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/terminal-payments/sdks/ios-sdk/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 ## Setup
 
 ```swift

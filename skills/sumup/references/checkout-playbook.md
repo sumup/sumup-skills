@@ -1,5 +1,8 @@
 # SumUp Checkout Playbook
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/terminal-payments/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 ## Contents
 
 1. Integration decision matrix

@@ -1,5 +1,8 @@
 # Checkouts API (Online)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 ## Create checkout (server-to-server)
 
 ```bash

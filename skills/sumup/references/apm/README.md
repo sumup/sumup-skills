@@ -1,5 +1,8 @@
 # Alternative Payment Methods (Online)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/apm/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 APMs are surfaced primarily through checkout UIs (especially Card Widget).
 
 ## Available methods (market dependent)

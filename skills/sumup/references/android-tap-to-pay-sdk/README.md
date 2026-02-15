@@ -1,5 +1,8 @@
 # Android Tap-to-Pay SDK (Card-present on phone)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/terminal-payments/sdks/android-ttp/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 ## Initialize once
 
 ```kotlin

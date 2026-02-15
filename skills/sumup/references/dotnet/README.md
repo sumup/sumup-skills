@@ -1,5 +1,8 @@
 # .NET SDK
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/sdks/dotnet/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 Use NuGet package `SumUp`.
 
 ## Online: create checkout

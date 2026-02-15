@@ -1,5 +1,8 @@
 # Node.js SDK
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/sdks/nodejs/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 Use `@sumup/sdk` for backend API calls.
 
 ## Online: create checkout

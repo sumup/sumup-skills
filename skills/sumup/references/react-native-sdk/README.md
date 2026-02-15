@@ -1,5 +1,8 @@
 # React Native SDK (Online)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/sdks/react-native/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 Use Payment Sheet for online checkout UX in mobile apps.
 
 ## Provider setup

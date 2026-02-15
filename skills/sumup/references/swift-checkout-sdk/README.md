@@ -1,5 +1,8 @@
 # Swift Checkout SDK (Online)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/checkouts/swift-checkout/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 Use this integration path for fast online checkout experiences with Apple Pay/Google Pay support.
 
 ## Flow

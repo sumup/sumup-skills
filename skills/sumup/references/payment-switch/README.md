@@ -1,5 +1,8 @@
 # Payment Switch (Terminal)
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/terminal-payments/payment-switch/index.md`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 Use Payment Switch when handing off from your app to the SumUp app for payment.
 
 ## Notes

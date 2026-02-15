@@ -1,5 +1,8 @@
 # SumUp References Index
 
+> Prefer the latest SumUp docs first: `https://developer.sumup.com/llms.txt`
+> LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
+
 Use these entrypoints (`README.md`) based on requested stack and flow.
 
 ## Server SDKs
