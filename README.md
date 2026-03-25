@@ -11,7 +11,7 @@ A collection of [Agent Skills](https://agentskills.io/home) for building SumUp p
 
 ## Installing
 
-These skills work with agents that support the Agent Skills standard, including Claude Code, Cursor, OpenCode, OpenAI Codex, and Pi.
+These skills work with agents that support the Agent Skills standard, including Claude Code, Cursor, Gemini CLI, OpenCode, OpenAI Codex, and Pi.
 
 ### Claude Code
 
@@ -25,6 +25,14 @@ Install using the plugin marketplace:
 ### Cursor
 
 Install from the Cursor Marketplace or add manually via **Settings > Rules > Add Rule > Remote Rule (Github)** with `sumup/sumup-skills`.
+
+### Gemini CLI
+
+Install the extension from GitHub:
+
+```bash
+gemini extensions install https://github.com/sumup/sumup-skills --ref=main
+```
 
 ### npx skills
 
@@ -42,6 +50,7 @@ Clone this repo and copy the skill folders into the appropriate directory for yo
 |-------|-----------------|------|
 | Claude Code | `~/.claude/skills/` | [docs](https://code.claude.com/docs/en/skills) |
 | Cursor | `~/.cursor/skills/` | [docs](https://cursor.com/docs/context/skills) |
+| Gemini CLI | `~/.gemini/extensions/` | [docs](https://geminicli.com/docs/extensions/) |
 | OpenCode | `~/.config/opencode/skills/` | [docs](https://opencode.ai/docs/skills/) |
 | OpenAI Codex | `~/.codex/skills/` | [docs](https://developers.openai.com/codex/skills/) |
 | Pi | `~/.pi/agent/skills/` | [docs](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#skills) |
