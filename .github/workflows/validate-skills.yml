@@ -4,12 +4,22 @@ on:
   pull_request:
     paths:
       - "skills/**"
+      - "providers/**"
+      - "scripts/sync-skills.sh"
+      - "justfile"
+      - ".claude-plugin/**"
+      - ".cursor-plugin/**"
       - ".github/workflows/validate-skills.yml"
   push:
     branches:
       - main
     paths:
       - "skills/**"
+      - "providers/**"
+      - "scripts/sync-skills.sh"
+      - "justfile"
+      - ".claude-plugin/**"
+      - ".cursor-plugin/**"
       - ".github/workflows/validate-skills.yml"
   workflow_dispatch:
 
@@ -36,10 +46,21 @@ jobs:
           curl -fsSL https://claude.ai/install.sh | bash
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
-      - name: Validate Claude plugin
+      - name: Validate Claude marketplace
         run: |
           set -euo pipefail
           claude plugin validate .
+
+      - name: Validate Claude plugin payload
+        run: |
+          set -euo pipefail
+          claude plugin validate providers/claude/plugin
+
+      - name: Check synced plugin skills
+        run: |
+          set -euo pipefail
+          ./scripts/sync-skills.sh
+          git diff --exit-code -- providers/claude/plugin/skills providers/cursor/plugin/skills
 
       - name: Validate all skills
         run: |
