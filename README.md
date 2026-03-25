@@ -19,6 +19,7 @@ Install using the plugin marketplace:
 
 ```bash
 /plugin marketplace add sumup/sumup-skills
+/plugin install sumup@sumup
 ```
 
 ### Cursor

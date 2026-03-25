@@ -1,13 +1,18 @@
 {
   "name": "sumup",
   "owner": {
-    "name": "SumUp"
+    "name": "SumUp",
+    "email": "developers@sumup.com"
   },
   "plugins": [
     {
       "name": "sumup",
-      "source": "./",
-      "description": "Skills for SumUp payment integrations"
+      "source": "./providers/cursor/plugin/",
+      "description": "Skills for SumUp payment integrations",
+      "version": "1.0.0",
+      "author": {
+        "name": "SumUp"
+      }
     }
   ]
 }
