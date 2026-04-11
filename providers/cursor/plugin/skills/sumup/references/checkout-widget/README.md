@@ -52,11 +52,13 @@ Always verify checkout status on backend after client callbacks.
 ## Reading Order
 
 1. This file.
-2. `references/checkouts-api/README.md` for checkout creation/retrieval.
-3. `references/webhooks-3ds/README.md` for async status confirmation and 3DS.
+2. `references/online-testing/README.md` for sandbox test cards and expected outcomes.
+3. `references/checkouts-api/README.md` for checkout creation/retrieval.
+4. `references/webhooks-3ds/README.md` for async status confirmation and 3DS.
 
 ## See Also
 
+- `references/online-testing/README.md`
 - `references/checkouts-api/README.md`
 - `references/webhooks-3ds/README.md`
 - `references/apm/README.md`

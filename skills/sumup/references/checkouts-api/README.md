@@ -25,11 +25,13 @@ curl -X POST https://api.sumup.com/v0.1/checkouts \
 ## Reading Order
 
 1. This file.
-2. `references/checkout-widget/README.md` if using hosted or embedded checkout UI.
-3. `references/webhooks-3ds/README.md` to finalize async lifecycle handling.
+2. `references/online-testing/README.md` for sandbox test cards and failure scenarios.
+3. `references/checkout-widget/README.md` if using hosted or embedded checkout UI.
+4. `references/webhooks-3ds/README.md` to finalize async lifecycle handling.
 
 ## See Also
 
+- `references/online-testing/README.md`
 - `references/checkout-widget/README.md`
 - `references/webhooks-3ds/README.md`
 - `references/apm/README.md`

@@ -26,6 +26,7 @@
 
 ## See Also
 
+- `references/online-testing/README.md`
 - `references/checkouts-api/README.md`
 - `references/checkout-widget/README.md`
 - `references/react-native-sdk/README.md`

@@ -25,6 +25,7 @@ Use these entrypoints (`README.md`) based on requested stack and flow.
 
 ## Online / Card-Not-Present Integrations
 
+- `references/online-testing/README.md`
 - `references/checkout-widget/README.md`
 - `references/swift-checkout-sdk/README.md`
 - `references/react-native-sdk/README.md`
@@ -46,6 +47,7 @@ Use these entrypoints (`README.md`) based on requested stack and flow.
 
 - `references/checkout-playbook.md`
 - `references/cloud-api/README.md`
+- `references/online-testing/README.md`
 - `references/checkout-widget/README.md`
 - `references/checkouts-api/README.md`
 - `references/webhooks-3ds/README.md`
