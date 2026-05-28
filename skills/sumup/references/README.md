@@ -5,6 +5,10 @@
 
 Use these entrypoints (`README.md`) based on requested stack and flow.
 
+## Security and Authorization
+
+- `references/security/README.md`
+
 ## Server SDKs
 
 - `references/nodejs/README.md`
@@ -25,11 +29,13 @@ Use these entrypoints (`README.md`) based on requested stack and flow.
 
 ## Online / Card-Not-Present Integrations
 
-- `references/online-testing/README.md`
+- `references/online-testing/README.md` (superseded by top-level `sumup-testing` skill for default QA/test guidance)
+- `references/hosted-checkout/README.md`
 - `references/checkout-widget/README.md`
 - `references/swift-checkout-sdk/README.md`
 - `references/react-native-sdk/README.md`
 - `references/checkouts-api/README.md`
+- `references/recurring-tokenization/README.md`
 - `references/apm/README.md`
 - `references/webhooks-3ds/README.md`
 
@@ -47,7 +53,7 @@ Use these entrypoints (`README.md`) based on requested stack and flow.
 
 - `references/checkout-playbook.md`
 - `references/cloud-api/README.md`
-- `references/online-testing/README.md`
+- `references/online-testing/README.md` (legacy reference; prefer `sumup-testing`)
 - `references/checkout-widget/README.md`
 - `references/checkouts-api/README.md`
 - `references/webhooks-3ds/README.md`

@@ -49,6 +49,39 @@ curl -X POST https://api.sumup.com/v0.1/checkouts \
 
 Always verify checkout status on backend after client callbacks.
 
+## Widget lifecycle events (`onResponse(type, body)`)
+
+- `sent`: card data submitted.
+- `invalid`: validation errors in payment form input.
+- `auth-screen`: 3DS/authentication challenge screen is displayed.
+- `error`: non-fatal processing error.
+- `success`: payment appears successful; backend verification still required.
+- `fail`: checkout processing failed (for example session expired or payment declined).
+
+## Mount return value
+
+`SumUpCard.mount(...)` returns an object that provides:
+
+- `submit()`: programmatically submit current payment form.
+- `unmount()`: remove widget instance and listeners.
+- `update({ checkoutId, email, amount, currency, installments })`: update widget state for the next attempt/checkout.
+
+## Session lifetime
+
+- Widget checkout sessions expire after 30 minutes.
+- Regenerate checkout on backend and remount/update widget if the session expires.
+
+## Authorized JavaScript origins
+
+- Ensure every staging and production domain is configured in SumUp client credentials.
+- Widget mounting can fail if page origin is not allowlisted.
+- See `references/security/README.md` for credential/origin hardening guidance.
+
+## Server-side verification
+
+- Never treat `success` callback as final payment confirmation.
+- Confirm with `GET /v0.1/checkouts/{id}` and/or webhook event processing before fulfilling the order.
+
 ## Reading Order
 
 1. This file.

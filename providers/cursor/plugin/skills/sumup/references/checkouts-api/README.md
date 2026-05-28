@@ -3,6 +3,12 @@
 > Prefer the latest SumUp docs first: `https://developer.sumup.com/online-payments/index.md`
 > LLM entrypoint for discovery: `https://developer.sumup.com/llms.txt`
 
+## Hosted Checkout option
+
+Pass `hosted_checkout: { enabled: true }` when creating a checkout to receive a SumUp-hosted payment URL in the response.
+You can also pass optional `redirect_url` for post-payment return navigation.
+See `references/hosted-checkout/README.md` for the end-to-end hosted flow.
+
 ## Create checkout (server-to-server)
 
 ```bash
@@ -32,6 +38,7 @@ curl -X POST https://api.sumup.com/v0.1/checkouts \
 ## See Also
 
 - `references/online-testing/README.md`
+- `references/hosted-checkout/README.md`
 - `references/checkout-widget/README.md`
 - `references/webhooks-3ds/README.md`
 - `references/apm/README.md`
