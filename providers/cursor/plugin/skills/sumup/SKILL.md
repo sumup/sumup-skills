@@ -1,6 +1,6 @@
 ---
 name: sumup
-description: Guide for building SumUp payment integrations that cover both terminal (card-present) and online (card-not-present) checkout flows using SumUp SDKs and APIs. Use when implementing or debugging SumUp checkout creation, payment processing, reader pairing, Card Widget integrations, Cloud API reader checkouts, or authorization setup with API keys/OAuth and Affiliate Keys.
+description: Implement SumUp checkout flows end-to-end. Use when writing or reviewing SumUp Checkouts API calls, Card Widget mounts, Hosted Checkout setup, recurring tokenization, Terminal SDK / Cloud API reader checkouts, or 3DS / webhook handling.
 license: Apache-2.0
 ---
 
@@ -17,6 +17,14 @@ Use this skill to implement end-to-end SumUp checkouts for:
 - Terminal payments (native mobile SDKs, Cloud API for Solo, or Payment Switch)
 - Online payments (Card Widget and API-orchestrated checkout flow)
 
+## Related Skills
+
+- `sumup-best-practices` for integration-path and security decisions.
+- `upgrade-sumup` for SDK/API version upgrades and migrations.
+- `sumup-debug` for troubleshooting failing integrations.
+- `sumup-mcp` for configuring and using `https://mcp.sumup.com/mcp`.
+- `sumup-testing` for sandbox setup and end-to-end QA.
+
 ## Quick Decision Tree
 
 ```text
@@ -26,8 +34,11 @@ Need to accept a payment?
 │  ├─ Non-native POS/backend controls Solo reader → terminal/platform-agnostic (Cloud API)
 │  └─ Legacy app handoff to SumUp app explicitly required → terminal/legacy-lightweight (Payment Switch)
 └─ Online (card-not-present) → online
-   ├─ Fastest secure integration, hosted/embedded UI acceptable → online/low-complexity (Card Widget)
-   └─ Custom orchestration and async lifecycle handling required → online/custom (Checkouts API + 3DS + webhooks)
+   ├─ Fastest, no embed needed, redirect OK → online/no-code (Hosted Checkout)
+   ├─ Embedded UI, no PCI burden → online/low-complexity (Card Widget)
+   ├─ Mobile app (iOS native | React Native) → online/mobile (Swift / React Native SDK)
+   ├─ Save card / subscriptions → online/recurring (Customers + tokenization)
+   └─ Custom orchestration → online/custom (Checkouts API + 3DS + webhooks)
 ```
 
 ## Start Here
@@ -40,7 +51,10 @@ Need to accept a payment?
    - `terminal/mobile`: iOS SDK or Android Reader SDK
    - `terminal/platform-agnostic`: Cloud API with Solo readers
    - `terminal/legacy-lightweight`: Payment Switch
+   - `online/no-code`: Hosted Checkout
    - `online/low-complexity`: Card Widget
+   - `online/mobile`: Swift Checkout SDK or React Native SDK
+   - `online/recurring`: Customers + tokenization + recurring charges
    - `online/custom`: Checkouts API + 3DS + webhooks
 3. Confirm credentials and environment:
    - API key or OAuth access token
@@ -107,3 +121,4 @@ Every solution should state:
 
 - Use `references/README.md` to pick the right reference file.
 - Each reference file includes its own canonical markdown docs URL. Prefer that URL over stale memory.
+- Open `references/hosted-checkout/README.md`, `references/recurring-tokenization/README.md`, or `references/security/README.md` directly when the request maps to those flows.
