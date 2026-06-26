@@ -9,7 +9,7 @@
       "name": "sumup",
       "source": "./providers/claude/plugin/",
       "description": "Skills for SumUp payment integrations",
-      "version": "1.2.0",
+      "version": "1.1.0",
       "author": {
         "name": "SumUp"
       }
