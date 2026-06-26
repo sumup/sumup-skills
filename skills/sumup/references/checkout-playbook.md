@@ -20,8 +20,12 @@
   - Cloud API with Solo reader.
 - Need lightweight app handoff on mobile:
   - Payment Switch (opens SumUp app).
+- Need fastest secure online flow without embedding UI:
+  - Hosted Checkout.
 - Need fastest online embed:
   - Card Widget.
+- Need save-card/subscription recurring charging:
+  - Customers + tokenization flow.
 - Need full custom online flow:
   - Checkouts API create + 3DS handling + webhook verification.
 
@@ -86,6 +90,20 @@ Important constraints:
 
 ## 4. Online Checkout Patterns
 
+### A0. Hosted Checkout (fastest no-embed path)
+
+Server:
+
+1. Create checkout with `hosted_checkout.enabled = true` (`POST /v0.1/checkouts`).
+2. Optionally include `redirect_url`.
+3. Store `checkout.id` and `hosted_checkout_url`.
+
+Frontend:
+
+1. Redirect customer to `hosted_checkout_url`.
+2. On return via `redirect_url`, show pending/result state only.
+3. Confirm final checkout status server-side before order fulfillment.
+
 ### A. Card Widget (recommended for fast secure embed)
 
 Server:
@@ -113,6 +131,16 @@ Notes:
 3. Handle 3DS `next_step` when returned by checkout flow.
 4. Verify final status via retrieve endpoint and webhooks.
 
+### C. Recurring / Tokenization
+
+1. Create customer (`POST /v0.1/customers`) with your business `customer_id`.
+2. Create setup checkout with `purpose: "SETUP_RECURRING_PAYMENT"` and `customer_id`.
+3. Complete setup through Card Widget (recommended for consent + 3DS + mandate handling).
+4. Retrieve and store `payment_instrument.token`.
+5. For later charges, create normal checkout and process with `token + customer_id`.
+
+See `references/recurring-tokenization/README.md` for implementation details and edge cases.
+
 ## 5. 3DS and Webhook Handling
 
 ### 3DS
@@ -125,11 +153,22 @@ Notes:
 
 ### Webhooks
 
-- Subscribe by setting `return_url` when creating checkout.
-- Expect event type for checkout status changes.
-- Reply quickly with `2xx` and empty body.
-- Retry schedule includes backoff (for example minute-level then hour-level retries).
-- Always re-read checkout state via API before finalizing order state.
+Two supported mechanisms:
+
+1. Per-checkout callback (`return_url`):
+   - Set `return_url` on checkout creation.
+   - Receive checkout-status POSTs for that checkout lifecycle.
+   - Reply quickly with empty `2xx`.
+2. Dashboard-registered webhook endpoint:
+   - Register endpoint in Developer Settings.
+   - Verify `x-payload-signature` using HMAC SHA-256 over raw body with webhook secret.
+   - Plan for retries (up to 9 attempts with exponential backoff).
+
+Common rules:
+
+- Treat incoming webhook/callback as signal.
+- Fetch current checkout state via API before finalizing order state.
+- Implement idempotent processing for duplicate/retry deliveries.
 
 ## 6. Common Pitfalls and Safeguards
 

@@ -61,7 +61,12 @@ Skills are contextual and auto-loaded based on your conversation. When a request
 
 | Skill | Useful for |
 |-------|------------|
-| sumup | Building SumUp checkout integrations for terminal and online payment flows, including SDK and API-based implementations |
+| [sumup](./skills/sumup/) | Implementing SumUp checkout flows end-to-end across Checkouts API, Card Widget, Hosted Checkout, recurring tokenization, and terminal/cloud reader checkouts |
+| [sumup-best-practices](./skills/sumup-best-practices/) | Choosing the right integration path and security posture across Hosted Checkout, Card Widget, Checkouts API, mobile SDKs, terminal SDKs, and Cloud API |
+| [upgrade-sumup](./skills/upgrade-sumup/) | Planning and executing SumUp API/SDK upgrades and migrations across server and mobile SDK surfaces |
+| [sumup-debug](./skills/sumup-debug/) | Diagnosing and fixing common integration failures such as webhook signature mismatches, scope issues, session expiry, widget mount failures, and duplicate references |
+| [sumup-mcp](./skills/sumup-mcp/) | Configuring and using the SumUp MCP server (`https://mcp.sumup.com/mcp`) from MCP-capable clients |
+| [sumup-testing](./skills/sumup-testing/) | Setting up sandbox test merchants, running success/failure scenarios (including `amount = 11`), and validating end-to-end checkout behavior |
 
 ## Resources
 
