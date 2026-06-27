@@ -16,7 +16,7 @@ Use this power for SumUp payment integrations. Prefer the latest SumUp Developer
 
 If tool access is needed, use the `sumup` MCP server from `mcp.json`.
 
-# When to Load Steering Files
+## When to Load Steering Files
 
 - Implementing online or terminal checkout flows -> `steering/checkout-integrations.md`
 - Choosing an integration path or reviewing security posture -> `steering/best-practices.md`
@@ -25,7 +25,7 @@ If tool access is needed, use the `sumup` MCP server from `mcp.json`.
 - Planning sandbox or end-to-end tests -> `steering/testing.md`
 - Upgrading SumUp APIs or SDKs -> `steering/upgrades.md`
 
-# General Rules
+## General Rules
 
 - Use sandbox credentials and test merchants for test flows.
 - Keep secrets out of code, logs, and prompts.

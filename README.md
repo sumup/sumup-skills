@@ -48,6 +48,14 @@ Import this repository as a custom power from Kiro: **Powers > Add Custom Power 
 
 For local testing, use **Import power from a folder** and select this repository root.
 
+### Agent Skills Discovery
+
+Agents and tools that support the [Agent Skills Discovery RFC](https://github.com/cloudflare/agent-skills-discovery-rfc) can discover the SumUp skills from:
+
+`https://developer.sumup.com/.well-known/agent-skills/index.json`
+
+Use this URL in clients that accept a discovery index or start from `https://developer.sumup.com` when the client discovers well-known skill indexes automatically.
+
 ### Clone / Copy
 
 Clone this repo and copy the skill folders into the appropriate directory for your agent:

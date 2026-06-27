@@ -62,6 +62,18 @@ verify-gemini-extension:
   test -f skills/sumup-mcp/SKILL.md
   test -f skills/sumup-testing/SKILL.md
 
+# Verify the Agent Skills Discovery export can be generated deterministically.
+verify-agent-skills-discovery:
+  rm -rf /tmp/sumup-agent-skills-discovery
+  GOCACHE=/tmp/sumup-skills-go-build go run scripts/export-agent-skills-discovery.go --out /tmp/sumup-agent-skills-discovery
+  test -f /tmp/sumup-agent-skills-discovery/index.json
+  test -f /tmp/sumup-agent-skills-discovery/sumup.zip
+  test -f /tmp/sumup-agent-skills-discovery/sumup-best-practices.zip
+  test -f /tmp/sumup-agent-skills-discovery/sumup-debug.zip
+  test -f /tmp/sumup-agent-skills-discovery/sumup-mcp.zip
+  test -f /tmp/sumup-agent-skills-discovery/sumup-testing.zip
+  test -f /tmp/sumup-agent-skills-discovery/upgrade-sumup.zip
+
 # Verify the Kiro power payload contains the required files.
 verify-kiro-power:
   test -f POWER.md
@@ -74,4 +86,4 @@ verify-kiro-power:
   test -f steering/upgrades.md
 
 # Sync skills and run all available marketplace/plugin checks.
-verify: sync-skills validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-gemini-extension verify-kiro-power
+verify: sync-skills validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-gemini-extension verify-agent-skills-discovery verify-kiro-power
