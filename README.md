@@ -42,6 +42,14 @@ Install using the `npx skills` CLI:
 npx skills add https://github.com/sumup/sumup-skills
 ```
 
+### OpenAI Codex
+
+Install using the Codex plugin marketplace:
+
+```bash
+codex plugin marketplace add sumup/sumup-skills
+```
+
 ### Clone / Copy
 
 Clone this repo and copy the skill folders into the appropriate directory for your agent:

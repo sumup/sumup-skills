@@ -1,0 +1,20 @@
+{
+  "name": "sumup",
+  "interface": {
+    "displayName": "SumUp"
+  },
+  "plugins": [
+    {
+      "name": "sumup",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Development"
+    }
+  ]
+}

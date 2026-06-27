@@ -17,7 +17,7 @@ Confirm these files exist:
 - `skills/sumup-debug/SKILL.md`
 - `skills/sumup-mcp/SKILL.md`
 - `skills/sumup-testing/SKILL.md`
-- `providers/cursor/plugin/.cursor-plugin/mcp.json`
+- `.cursor-plugin/plugin.json`
 
 ## 2) Load in Cursor Desktop
 
@@ -120,8 +120,9 @@ Confirm version `1.0.0` in:
 
 - `.cursor-plugin/marketplace.json`
 - `.claude-plugin/marketplace.json`
-- `providers/cursor/plugin/.cursor-plugin/plugin.json`
-- `providers/claude/plugin/.claude-plugin/plugin.json`
+- `.cursor-plugin/plugin.json`
+- `.claude-plugin/plugin.json`
+- `.codex-plugin/plugin.json`
 
 Confirm root docs:
 

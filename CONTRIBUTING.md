@@ -24,7 +24,9 @@ When preparing a release, update the version in every published manifest and any
 
 - `gemini-extension.json`
 - `.cursor-plugin/marketplace.json`
+- `.cursor-plugin/plugin.json`
 - `.claude-plugin/marketplace.json`
-- `providers/cursor/plugin/.cursor-plugin/plugin.json`
-- `providers/claude/plugin/.claude-plugin/plugin.json`
+- `.claude-plugin/plugin.json`
+- `.agents/plugins/marketplace.json`
+- `.codex-plugin/plugin.json`
 - `CURSOR_DESKTOP_VERIFICATION_CHECKLIST.md`

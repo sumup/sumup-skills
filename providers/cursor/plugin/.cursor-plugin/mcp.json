@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "sumup": {
-      "type": "http",
-      "url": "https://mcp.sumup.com/mcp"
-    }
-  }
-}

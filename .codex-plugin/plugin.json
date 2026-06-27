@@ -1,0 +1,51 @@
+{
+  "name": "sumup",
+  "version": "1.0.0",
+  "description": "Skills for SumUp payment integrations across terminal and online checkout flows",
+  "author": {
+    "name": "SumUp",
+    "email": "developers@sumup.com",
+    "url": "https://developer.sumup.com"
+  },
+  "homepage": "https://developer.sumup.com",
+  "repository": "https://github.com/sumup/sumup-skills",
+  "license": "Apache-2.0",
+  "keywords": [
+    "sumup",
+    "payments",
+    "checkout",
+    "terminal",
+    "online",
+    "api",
+    "sdk",
+    "card-present",
+    "card-not-present",
+    "upgrade",
+    "migration",
+    "debug",
+    "mcp",
+    "testing"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "SumUp",
+    "shortDescription": "Build and debug SumUp payment integrations.",
+    "longDescription": "Skills and MCP configuration for implementing, testing, upgrading, and debugging SumUp payment integrations across online checkout, terminal, and Cloud API flows.",
+    "developerName": "SumUp",
+    "category": "Development",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://developer.sumup.com/",
+    "privacyPolicyURL": "https://www.sumup.com/privacy/",
+    "termsOfServiceURL": "https://www.sumup.com/terms/",
+    "defaultPrompt": [
+      "Implement a SumUp Card Widget checkout.",
+      "Debug a SumUp webhook signature failure.",
+      "Create a SumUp sandbox test plan."
+    ],
+    "brandColor": "#3063E9"
+  }
+}
