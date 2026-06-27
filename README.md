@@ -34,14 +34,6 @@ Install the extension from GitHub:
 gemini extensions install https://github.com/sumup/sumup-skills --ref=main
 ```
 
-### npx skills
-
-Install using the `npx skills` CLI:
-
-```bash
-npx skills add https://github.com/sumup/sumup-skills
-```
-
 ### OpenAI Codex
 
 Install using the Codex plugin marketplace:
@@ -70,6 +62,12 @@ Clone this repo and copy the skill folders into the appropriate directory for yo
 | Pi | `~/.pi/agent/skills/` | [docs](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent#skills) |
 
 ## Skills
+
+Install using the `npx skills` CLI:
+
+```bash
+npx skills add https://github.com/sumup/sumup-skills
+```
 
 Skills are contextual and auto-loaded based on your conversation. When a request matches a skill's triggers, the agent loads and applies that skill.
 
