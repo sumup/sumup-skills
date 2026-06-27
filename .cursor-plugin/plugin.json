@@ -23,5 +23,5 @@
     "testing"
   ],
   "mcpServers": ".mcp.json",
-  "logo": "skills/sumup/assets/small-logo.svg"
+  "logo": "assets/logo.png"
 }

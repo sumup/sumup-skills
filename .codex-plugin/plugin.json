@@ -46,6 +46,8 @@
       "Debug a SumUp webhook signature failure.",
       "Create a SumUp sandbox test plan."
     ],
-    "brandColor": "#3063E9"
+    "brandColor": "#fbfbf9",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
   }
 }
