@@ -51,6 +51,17 @@ verify-cursor-plugin-skills:
   test -f skills/sumup-mcp/SKILL.md
   test -f skills/sumup-testing/SKILL.md
 
+# Verify the Gemini extension payload contains the manifest and context files.
+verify-gemini-extension:
+  test -f gemini-extension.json
+  test -f GEMINI.md
+  test -f skills/sumup/SKILL.md
+  test -f skills/sumup-best-practices/SKILL.md
+  test -f skills/upgrade-sumup/SKILL.md
+  test -f skills/sumup-debug/SKILL.md
+  test -f skills/sumup-mcp/SKILL.md
+  test -f skills/sumup-testing/SKILL.md
+
 # Verify the Kiro power payload contains the required files.
 verify-kiro-power:
   test -f POWER.md
@@ -63,4 +74,4 @@ verify-kiro-power:
   test -f steering/upgrades.md
 
 # Sync skills and run all available marketplace/plugin checks.
-verify: sync-skills validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-kiro-power
+verify: sync-skills validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-gemini-extension verify-kiro-power

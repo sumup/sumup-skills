@@ -2,27 +2,9 @@ name: Validate Skills
 
 on:
   pull_request:
-    paths:
-      - "skills/**"
-      - "scripts/sync-skills.sh"
-      - "justfile"
-      - ".agents/**"
-      - ".claude-plugin/**"
-      - ".codex-plugin/**"
-      - ".cursor-plugin/**"
-      - ".github/workflows/validate-skills.yml"
   push:
     branches:
       - main
-    paths:
-      - "skills/**"
-      - "scripts/sync-skills.sh"
-      - "justfile"
-      - ".agents/**"
-      - ".claude-plugin/**"
-      - ".codex-plugin/**"
-      - ".cursor-plugin/**"
-      - ".github/workflows/validate-skills.yml"
   workflow_dispatch:
 
 jobs:

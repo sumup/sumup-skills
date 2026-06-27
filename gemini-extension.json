@@ -1,6 +1,12 @@
 {
   "name": "sumup",
   "version": "1.0.0",
+  "description": "Skills and MCP configuration for building SumUp payment integrations",
   "license": "Apache-2.0",
-  "contextFileName": "GEMINI.md"
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "sumup": {
+      "httpUrl": "https://mcp.sumup.com/mcp"
+    }
+  }
 }
