@@ -116,7 +116,7 @@ Expected:
 
 ## 6) Manifest and docs sanity checks
 
-Confirm version `1.2.0` in:
+Confirm version `1.0.0` in:
 
 - `.cursor-plugin/marketplace.json`
 - `.claude-plugin/marketplace.json`
@@ -135,4 +135,4 @@ Verification is complete when all are true:
 2. Scope boundaries hold (minimal cross-skill bleed).
 3. MCP setup guidance is correct and actionable in Cursor.
 4. Synced provider payload contains all new skills.
-5. Manifests/docs reflect `1.2.0` and multi-skill layout.
+5. Manifests/docs reflect `1.0.0` and multi-skill layout.

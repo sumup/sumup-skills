@@ -17,3 +17,14 @@ Examples:
 - `feat: add checkout widget troubleshooting guidance`
 - `fix: correct Cloud API references in sumup skill`
 - `docs: improve installation instructions in readme`
+
+## Releases
+
+When preparing a release, update the version in every published manifest and any release verification docs that mention the current version:
+
+- `gemini-extension.json`
+- `.cursor-plugin/marketplace.json`
+- `.claude-plugin/marketplace.json`
+- `providers/cursor/plugin/.cursor-plugin/plugin.json`
+- `providers/claude/plugin/.claude-plugin/plugin.json`
+- `CURSOR_DESKTOP_VERIFICATION_CHECKLIST.md`
