@@ -13,5 +13,8 @@ test -f "$REPO_ROOT/.codex-plugin/plugin.json"
 test -f "$REPO_ROOT/.cursor-plugin/plugin.json"
 test -f "$REPO_ROOT/.cursor-plugin/marketplace.json"
 test -f "$REPO_ROOT/.mcp.json"
+test -f "$REPO_ROOT/POWER.md"
+test -f "$REPO_ROOT/mcp.json"
+test -d "$REPO_ROOT/steering"
 
 echo "Root plugin layout is ready"

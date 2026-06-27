@@ -50,6 +50,12 @@ Install using the Codex plugin marketplace:
 codex plugin marketplace add sumup/sumup-skills
 ```
 
+### Kiro
+
+Import this repository as a custom power from Kiro: **Powers > Add Custom Power > Import power from GitHub**.
+
+For local testing, use **Import power from a folder** and select this repository root.
+
 ### Clone / Copy
 
 Clone this repo and copy the skill folders into the appropriate directory for your agent:

@@ -51,5 +51,16 @@ verify-cursor-plugin-skills:
   test -f skills/sumup-mcp/SKILL.md
   test -f skills/sumup-testing/SKILL.md
 
+# Verify the Kiro power payload contains the required files.
+verify-kiro-power:
+  test -f POWER.md
+  test -f mcp.json
+  test -f steering/checkout-integrations.md
+  test -f steering/best-practices.md
+  test -f steering/debugging.md
+  test -f steering/mcp.md
+  test -f steering/testing.md
+  test -f steering/upgrades.md
+
 # Sync skills and run all available marketplace/plugin checks.
-verify: sync-skills validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin
+verify: sync-skills validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-kiro-power
