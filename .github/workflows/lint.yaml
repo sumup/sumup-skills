@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: rvben/rumdl@12e34feb01c07d62a8161b5ac74940ffe8954c21 # v0.2.30
+      - uses: rvben/rumdl@9faf4696d56c0cff426a2f85b3fd476ebe0d0ec0 # v0.2.52
