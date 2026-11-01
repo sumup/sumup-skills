@@ -30,5 +30,5 @@ If tool access is needed, use the `sumup` MCP server from `mcp.json`.
 - Use sandbox credentials and test merchants for test flows.
 - Keep secrets out of code, logs, and prompts.
 - For Card Widget and Hosted Checkout, create checkouts server-side and avoid exposing privileged credentials to browsers.
-- For webhooks, verify signatures before trusting event payloads.
+- Treat callbacks as notifications and retrieve the checkout or transaction before updating payment state. Require signatures only when the selected product documents them.
 - For terminal and Cloud API flows, account for asynchronous status transitions and idempotency.

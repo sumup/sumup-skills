@@ -11,5 +11,5 @@ Use this workflow when implementing SumUp checkout flows end-to-end.
   - Use Cloud API when a backend or non-native POS controls compatible readers.
   - Use Payment Switch only when legacy SumUp app handoff is explicitly required.
 - Always create checkout resources on the server.
-- Persist and reconcile checkout status using webhook events or explicit API reads.
-- Treat `checkout_reference` as an idempotency and reconciliation key; avoid duplicate references.
+- Treat webhooks as notifications and verify checkout or transaction status through API reads before fulfillment.
+- Use `checkout_reference` to identify and reconcile each attempt; do not assume it provides server-enforced idempotency. Resolve the previous result before starting another attempt.

@@ -13,11 +13,17 @@ sync-skills:
 
 # Validate the root Claude marketplace manifest.
 validate-claude-marketplace:
-  claude plugin validate .
+  claude plugin validate .claude-plugin/marketplace.json --strict
 
 # Validate the Claude plugin payload manifest.
 validate-claude-plugin:
-  claude plugin validate .
+  claude plugin validate .claude-plugin/plugin.json --strict
+
+# Validate portable schemas and consistency across client manifests.
+verify-agent-plugin:
+  uvx check-jsonschema --schemafile https://agent-plugins.org/schemas/1.0.0/plugin.schema.json plugin.json
+  uvx check-jsonschema --schemafile https://agent-plugins.org/schemas/1.0.0/mcp.schema.json mcp.json
+  python3 scripts/validate-plugins.py
 
 # Verify the Cursor plugin payload contains the manifest and root skill files.
 verify-cursor-plugin:
@@ -76,6 +82,7 @@ verify-agent-skills-discovery:
 
 # Verify the Kiro power payload contains the required files.
 verify-kiro-power:
+  test -f plugin.json
   test -f POWER.md
   test -f mcp.json
   test -f steering/checkout-integrations.md
@@ -86,4 +93,4 @@ verify-kiro-power:
   test -f steering/upgrades.md
 
 # Sync skills and run all available marketplace/plugin checks.
-verify: sync-skills validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-gemini-extension verify-agent-skills-discovery verify-kiro-power
+verify: sync-skills verify-agent-plugin validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-gemini-extension verify-agent-skills-discovery verify-kiro-power

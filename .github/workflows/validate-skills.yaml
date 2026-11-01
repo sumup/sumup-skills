@@ -33,12 +33,21 @@ jobs:
       - name: Validate Claude marketplace
         run: |
           set -euo pipefail
-          claude plugin validate .
+          claude plugin validate .claude-plugin/marketplace.json --strict
 
       - name: Validate Claude plugin payload
         run: |
           set -euo pipefail
-          claude plugin validate .
+          claude plugin validate .claude-plugin/plugin.json --strict
+
+      - name: Validate portable plugin schemas
+        run: |
+          set -euo pipefail
+          uvx check-jsonschema --schemafile https://agent-plugins.org/schemas/1.0.0/plugin.schema.json plugin.json
+          uvx check-jsonschema --schemafile https://agent-plugins.org/schemas/1.0.0/mcp.schema.json mcp.json
+
+      - name: Check plugin consistency
+        run: python3 scripts/validate-plugins.py
 
       - name: Check root plugin layout
         run: |

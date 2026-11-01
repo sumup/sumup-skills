@@ -10,7 +10,7 @@
       "name": "sumup",
       "source": "./",
       "description": "Skills for SumUp payment integrations",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "logo": "assets/logo.png",
       "author": {
         "name": "SumUp"

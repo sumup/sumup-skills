@@ -1,6 +1,6 @@
 {
   "name": "sumup",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Skills for SumUp payment integrations across terminal and online checkout flows",
   "author": {
     "name": "SumUp",
@@ -43,7 +43,7 @@
     "termsOfServiceURL": "https://www.sumup.com/terms/",
     "defaultPrompt": [
       "Implement a SumUp Card Widget checkout.",
-      "Debug a SumUp webhook signature failure.",
+      "Debug a SumUp checkout callback failure.",
       "Create a SumUp sandbox test plan."
     ],
     "brandColor": "#fbfbf9",

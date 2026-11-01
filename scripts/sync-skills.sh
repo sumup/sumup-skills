@@ -7,6 +7,8 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SKILLS_DIR="$REPO_ROOT/skills"
 
 test -d "$SKILLS_DIR"
+test -f "$REPO_ROOT/plugin.json"
+test -f "$REPO_ROOT/.agents/plugins/marketplace.json"
 test -f "$REPO_ROOT/.claude-plugin/plugin.json"
 test -f "$REPO_ROOT/.claude-plugin/marketplace.json"
 test -f "$REPO_ROOT/.codex-plugin/plugin.json"
