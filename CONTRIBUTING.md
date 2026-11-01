@@ -1,64 +1,52 @@
 # Contributing
 
-Thanks for contributing to `sumup-skills`.
+Keep changes focused and use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), such as `docs: clarify sandbox testing`.
 
-## Development
+## Make Changes
 
-- Add or update skill content under `skills/`.
-- Keep instructions practical, current, and source-backed.
-- Prefer incremental pull requests focused on one skill or one clear change.
+- Edit skills under `skills/`. Describe when each skill applies, keep its instructions concise, and put detailed setup or scenarios in `references/`.
+- Keep each skill usable on its own. Preserve payment and credential safeguards, and match the workflow to the user's request.
+- Keep shared metadata in the client manifests consistent with root `plugin.json`.
+- Keep skill content, references, and legacy Kiro files (`POWER.md` and `steering/`) consistent.
 
-## Plugin validation
+The portable package uses `plugin.json`, `mcp.json`, and `skills/` at the repository root. Native clients also use `.claude-plugin/`, `.codex-plugin/`, `.cursor-plugin/`, and `gemini-extension.json`.
 
-The portable package uses root `plugin.json`, `mcp.json`, and `skills/`. Client manifests under `.claude-plugin/`, `.codex-plugin/`, and `.cursor-plugin/` preserve native integrations. Keep their shared metadata consistent with `plugin.json`.
+For MCP, `mcp.json` uses `streamable-http`, `.mcp.json` uses `http`, and Gemini uses `httpUrl`. All point to `https://mcp.sumup.com/mcp` and use OAuth.
 
-`mcp.json` uses the Agent Plugins `streamable-http` transport. `.mcp.json` uses the native `http` transport for Claude Code and the compatibility manifests; Gemini uses `httpUrl` in `gemini-extension.json`. All three configurations must point to the same hosted OAuth endpoint.
+## Plugin Documentation
 
-Run `just verify` with Python 3.9+, uv, Claude Code, and Go installed. `just verify-agent-plugin` checks the portable JSON schemas, shared manifest metadata, marketplace sources, MCP configuration, and referenced resources. The validation workflow also runs these checks and validates every skill with `skills-ref`.
+| Topic | References |
+| --- | --- |
+| Agent Plugins | [Authoring guide](https://agent-plugins.org/plugin-authors/build-an-agent-plugin), [specification](https://agent-plugins.org/specification), [plugin manifest schema](https://agent-plugins.org/schemas/1.0.0/plugin.schema.json) |
+| Bundled MCP servers | [Configuration guide](https://agent-plugins.org/plugin-authors/mcp-servers), [MCP schema](https://agent-plugins.org/schemas/1.0.0/mcp.schema.json) |
+| Agent Skills | [Specification](https://agentskills.io/specification), [authoring guidance](https://agentskills.io/skill-creation/best-practices) |
+| Codex / ChatGPT | [Plugin packaging and marketplaces](https://developers.openai.com/plugins/build/plugins) |
+| Claude Code | [Plugin manifest](https://code.claude.com/docs/en/plugins-reference), [marketplace reference](https://code.claude.com/docs/en/plugins/marketplace-reference) |
+| Cursor | [Plugin reference](https://cursor.com/docs/reference/plugins) |
+| Gemini CLI | [Extension reference](https://geminicli.com/docs/extensions/reference/), [releases](https://geminicli.com/docs/extensions/releasing/) |
+| Kiro | [Power format](https://kiro.dev/docs/powers/create/) |
+| VS Code / GitHub Copilot | [Plugin authoring reference](https://code.visualstudio.com/docs/agents/reference/agent-plugin-reference) |
+| Skill discovery | [Agent Skills Discovery RFC](https://github.com/cloudflare/agent-skills-discovery-rfc) |
 
-Use the [Cursor verification checklist](./CURSOR_DESKTOP_VERIFICATION_CHECKLIST.md) for installation, skill routing, and OAuth checks that require the desktop client.
+## Validate Changes
 
-Format references:
+Install just, Python 3.9+, uv, Claude Code, and Go, then run `just verify`. It checks schemas, manifest consistency, plugin files, Claude manifests, and discovery exports. For manifest-only changes, run `just verify-agent-plugin`. CI also validates every skill with `skills-ref` and checks Markdown with rumdl.
 
-- [Agent Plugins specification](https://agent-plugins.org/specification)
-- [OpenAI plugin packaging](https://developers.openai.com/plugins/build/plugins)
-- [Cursor plugin reference](https://cursor.com/docs/reference/plugins)
-- [Claude plugin manifest reference](https://code.claude.com/docs/en/plugins-reference)
-- [Gemini extension reference](https://geminicli.com/docs/extensions/reference/)
-- [Kiro power format](https://kiro.dev/docs/powers/create/)
+Use the [desktop verification checklist](./CURSOR_DESKTOP_VERIFICATION_CHECKLIST.md), including its [routing and scope probes](./CURSOR_DESKTOP_VERIFICATION_CHECKLIST.md#narrow-tasks-and-routing-probes), to check installation, OAuth, and actual agent behavior. Record what ran; static checks cannot prove that an agent selects or follows a skill correctly.
 
-## Keeping integration guidance current
+## Keep Content Current
 
-Keep skill descriptions focused on the task that should select them. Put decisions and payment safeguards in `SKILL.md`; link client-specific setup or scenario data from `references/` with a clear loading condition. Keep each skill usable when installed on its own. Preserve exact credential and payment-state rules, while scaling workflow and response detail to the user's request.
+Check the [SumUp documentation index](https://developer.sumup.com/llms.txt), [API reference index](https://developer.sumup.com/api/llms.txt), and [OpenAPI contract](https://developer.sumup.com/openapi.json). Compare `sumup-developer` documentation and changelog changes since the affected skill last changed. Distinguish published guidance from drafts and uncommitted work. Verify SDK examples against the relevant version.
 
-Use the [routing and scope probes](./CURSOR_DESKTOP_VERIFICATION_CHECKLIST.md#narrow-tasks-and-routing-probes) to check changes with real agent runs. Record the selected skill, references, actions, and outcome. Static validation checks structure and packaging, not whether an agent selects or follows a skill correctly. See the [Agent Skills authoring guidance](https://agentskills.io/skill-creation/best-practices) for context and scope decisions.
-
-Use the current [SumUp documentation index](https://developer.sumup.com/llms.txt), [API reference index](https://developer.sumup.com/api/llms.txt), and [OpenAPI contract](https://developer.sumup.com/openapi.json) as sources. Compare `sumup-developer` content and changelog commits since the affected skill or reference last changed, rather than using the latest dependency or plugin-setup commit as the content baseline. Distinguish committed documentation from local work and draft pages.
-
-Keep references, top-level skills, and legacy Kiro steering consistent. Prefer current SDK documentation over duplicated language snippets when the installed SDK's request types or service names matter.
-
-The developer website imports these skills from the revision pinned in its `agent-skills.source.json`. After committing a skill update, refresh that source through the website's `npm run sync:agent-skills` workflow; do not hand-edit imported copies or discovery archives.
-
-## Conventional Commits
-
-`sumup-skills` uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
-
-Examples:
-
-- `feat: add checkout widget troubleshooting guidance`
-- `fix: correct Cloud API references in sumup skill`
-- `docs: improve installation instructions in readme`
+The developer website imports skills from the revision in its `agent-skills.source.json`. After committing a skill update, update that revision and run `npm run sync:agent-skills` in `sumup-developer`. Do not hand-edit imported skills or discovery archives.
 
 ## Releases
 
-When preparing a release, bump the version in every published manifest and marketplace entry that declares one. Hosted clients cache versioned plugins, so pushing changed files without a version bump can leave users on an older payload:
+Bump the version in these files when releasing changes, so clients can refresh cached plugins:
 
-- `plugin.json`
+- `plugin.json` and `.codex-plugin/plugin.json`
+- `.claude-plugin/plugin.json` and `.claude-plugin/marketplace.json`
+- `.cursor-plugin/plugin.json` and `.cursor-plugin/marketplace.json`
 - `gemini-extension.json`
-- `.cursor-plugin/marketplace.json`
-- `.cursor-plugin/plugin.json`
-- `.claude-plugin/marketplace.json`
-- `.claude-plugin/plugin.json`
-- `.codex-plugin/plugin.json`
 
-`.agents/plugins/marketplace.json` points to the plugin root and does not declare a separate version. Run `just verify-agent-plugin` after changing release metadata.
+`.agents/plugins/marketplace.json` points to the plugin root and has no separate version. Run `just verify-agent-plugin` after updating release metadata.
