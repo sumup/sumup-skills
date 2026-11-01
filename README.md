@@ -70,7 +70,7 @@ Import this repository as a custom power from Kiro: **Powers > Add Custom Power 
 
 Activate the power and authorize its SumUp MCP connection when prompted. For local testing, use **Import power from a folder** and select this repository root.
 
-The power uses the current [Agent Plugins format](https://kiro.dev/docs/powers/create/) with `plugin.json`, `mcp.json`, and `skills/`. The repository also retains `POWER.md` and `steering/` for older Kiro versions.
+The power uses the [Agent Plugins format](https://kiro.dev/docs/powers/create/) with `plugin.json`, `mcp.json`, and `skills/`.
 
 ### VS Code / GitHub Copilot
 
@@ -128,7 +128,7 @@ Ask your assistant: "Use the SumUp skills to explain how to build a Hosted Check
 
 After authorizing MCP, try a read-only request: "Use the SumUp MCP tools to show my merchant profile."
 
-Use a [sandbox merchant account](https://developer.sumup.com/online-payments/#getting-a-sandbox-merchant-account) before testing payment workflows. If tools are missing or authorization fails, see [MCP troubleshooting](https://developer.sumup.com/tools/llms/mcp-server/#troubleshooting).
+MCP supports account queries; taking payments through MCP is not supported. Use a [sandbox merchant account](https://developer.sumup.com/online-payments/#getting-a-sandbox-merchant-account) when testing payment integrations built with the skills. If tools are missing or authorization fails, see [MCP troubleshooting](https://developer.sumup.com/tools/llms/mcp-server/#troubleshooting).
 
 ## Resources
 

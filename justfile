@@ -80,17 +80,5 @@ verify-agent-skills-discovery:
   test -f /tmp/sumup-agent-skills-discovery/sumup-testing.zip
   test -f /tmp/sumup-agent-skills-discovery/upgrade-sumup.zip
 
-# Verify the Kiro power payload contains the required files.
-verify-kiro-power:
-  test -f plugin.json
-  test -f POWER.md
-  test -f mcp.json
-  test -f steering/checkout-integrations.md
-  test -f steering/best-practices.md
-  test -f steering/debugging.md
-  test -f steering/mcp.md
-  test -f steering/testing.md
-  test -f steering/upgrades.md
-
 # Sync skills and run all available marketplace/plugin checks.
-verify: sync-skills verify-agent-plugin validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-gemini-extension verify-agent-skills-discovery verify-kiro-power
+verify: sync-skills verify-agent-plugin validate-claude-marketplace validate-claude-plugin verify-codex-plugin verify-cursor-plugin verify-gemini-extension verify-agent-skills-discovery

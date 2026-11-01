@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 import re
 import sys
+from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,12 +32,65 @@ def local_path(path):
     return resolved
 
 
+def nonempty_text(value, field, limit=None):
+    require(isinstance(value, str) and bool(value.strip()), f"{field}: expected nonempty text")
+    if limit is not None:
+        require(len(value) <= limit, f"{field}: exceeds {limit} characters")
+
+
+def https_url(value, field):
+    nonempty_text(value, field)
+    parsed = urlparse(value)
+    require(parsed.scheme == "https" and bool(parsed.netloc), f"{field}: expected an HTTPS URL")
+
+
+def validate_openai(metadata):
+    # These checks prepare the ZIP; live cases, reviewer access, and a recording
+    # still need to be completed before submission. See CONTRIBUTING.md.
+    interface = metadata["interface"]
+    for field, limit in (("displayName", 30), ("shortDescription", 30),
+                         ("longDescription", 4000), ("developerName", 80)):
+        nonempty_text(interface[field], field, limit)
+    for field in ("websiteURL", "supportURL", "privacyPolicyURL", "termsOfServiceURL"):
+        https_url(interface[field], field)
+    prompts = interface["defaultPrompt"]
+    require(isinstance(prompts, list) and len(prompts) <= 3, "Expected at most three default prompts")
+    for prompt in prompts:
+        nonempty_text(prompt, "defaultPrompt", 128)
+
+    review = metadata["review"]
+    require(not {"test_credentials", "reviewer_instructions"} & review.keys(),
+            "Reviewer access belongs in the private dashboard, not the package")
+    cases = review["test_cases"]
+    require(set(cases) == {"positive", "negative"}, "Expected positive and negative review cases")
+    allowed = {"description", "prompt", "tools_triggered", "expected_behavior",
+               "file_attachment_urls", "expected_output_url"}
+    for kind, count in (("positive", 5), ("negative", 3)):
+        require(isinstance(cases[kind], list) and len(cases[kind]) == count,
+                f"Expected exactly {count} {kind} review cases")
+        for case in cases[kind]:
+            require(isinstance(case, dict) and not case.keys() - allowed,
+                    f"Unsupported fields in {kind} review case")
+            nonempty_text(case["description"], f"{kind}.description", 4000)
+            nonempty_text(case["prompt"], f"{kind}.prompt")
+            for field in ("tools_triggered", "expected_behavior"):
+                if kind == "positive" or field in case:
+                    nonempty_text(case[field], f"{kind}.{field}")
+    require(isinstance(review["commerce"], bool), "review.commerce must be a boolean")
+    nonempty_text(review["commerce_description"], "review.commerce_description")
+    if "demo_recording_url" in review:
+        https_url(review["demo_recording_url"], "review.demo_recording_url")
+    nonempty_text(metadata["publication"]["release_notes"], "publication.release_notes")
+
+
 def validate():
     portable = read("plugin.json")
     name = portable["name"]
     version = portable["version"]
     require(re.fullmatch(r"\d+\.\d+\.\d+", version), "Expected a release version")
-    interface = portable["extensions"]["com.openai"]["interface"]
+    openai = portable["extensions"]["com.openai"]
+    interface = openai["interface"]
+    validate_openai(openai)
 
     for client in ("claude", "codex", "cursor"):
         path = f".{client}-plugin/plugin.json"
@@ -52,6 +106,9 @@ def validate():
                     f"{path}: expected the native MCP configuration")
         if client == "codex":
             require(manifest["interface"] == interface, "Codex presentation metadata differs")
+            require(manifest["extensions"]["com.openai"] ==
+                    {key: value for key, value in openai.items() if key != "interface"},
+                    "Codex submission metadata differs from plugin.json")
         if "logo" in manifest:
             local_path(manifest["logo"])
 

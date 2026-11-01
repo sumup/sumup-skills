@@ -31,6 +31,6 @@ When the client supports MCP resources, read the [documentation index](https://d
 
 ## Account operations
 
-Use tools only for the requested account and operation. Account access and a setup-verification prompt do not authorize creating or processing payments. For requested test mutations, verify the sandbox merchant; for requested production work, preserve that scope and use reads to establish current state before an action.
+Use tools only for the requested account and operation. Taking payments through SumUp MCP is not supported. For payment collection, help the user implement a SumUp API or SDK integration in their application; do not collect card details or invoke tools to process a payment or start a reader payment.
 
-Treat payment callbacks as notifications and reconcile payment state through API reads. Do not repeat a payment or refund whose result is uncertain. Report the requested result with its stable identifiers and relevant limits. A working account query needs its result, not another setup guide.
+For account queries, report the returned state with stable identifiers and relevant limits. A working query needs its result, not another setup guide. Do not infer payment success from a callback; use authorized reads to check the current state.

@@ -18,8 +18,6 @@ test -f "$REPO_ROOT/.mcp.json"
 test -f "$REPO_ROOT/scripts/export-agent-skills-discovery.go"
 test -f "$REPO_ROOT/gemini-extension.json"
 test -f "$REPO_ROOT/GEMINI.md"
-test -f "$REPO_ROOT/POWER.md"
 test -f "$REPO_ROOT/mcp.json"
-test -d "$REPO_ROOT/steering"
 
 echo "Root plugin layout is ready"

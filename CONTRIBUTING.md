@@ -7,7 +7,6 @@ Keep changes focused and use [Conventional Commits](https://www.conventionalcomm
 - Edit skills under `skills/`. Describe when each skill applies, keep its instructions concise, and put detailed setup or scenarios in `references/`.
 - Keep each skill usable on its own. Preserve payment and credential safeguards, and match the workflow to the user's request.
 - Keep shared metadata in the client manifests consistent with root `plugin.json`.
-- Keep skill content, references, and legacy Kiro files (`POWER.md` and `steering/`) consistent.
 
 The portable package uses `plugin.json`, `mcp.json`, and `skills/` at the repository root. Native clients also use `.claude-plugin/`, `.codex-plugin/`, `.cursor-plugin/`, and `gemini-extension.json`.
 
@@ -20,7 +19,7 @@ For MCP, `mcp.json` uses `streamable-http`, `.mcp.json` uses `http`, and Gemini 
 | Agent Plugins | [Authoring guide](https://agent-plugins.org/plugin-authors/build-an-agent-plugin), [specification](https://agent-plugins.org/specification), [plugin manifest schema](https://agent-plugins.org/schemas/1.0.0/plugin.schema.json) |
 | Bundled MCP servers | [Configuration guide](https://agent-plugins.org/plugin-authors/mcp-servers), [MCP schema](https://agent-plugins.org/schemas/1.0.0/mcp.schema.json) |
 | Agent Skills | [Specification](https://agentskills.io/specification), [authoring guidance](https://agentskills.io/skill-creation/best-practices) |
-| Codex / ChatGPT | [Plugin packaging and marketplaces](https://developers.openai.com/plugins/build/plugins) |
+| Codex / ChatGPT | [Plugin packaging and marketplaces](https://developers.openai.com/plugins/build/plugins), [submission metadata and review](https://developers.openai.com/plugins/deploy/submission#automatically-provide-submission-and-review-information) |
 | Claude Code | [Plugin manifest](https://code.claude.com/docs/en/plugins-reference), [marketplace reference](https://code.claude.com/docs/en/plugins/marketplace-reference) |
 | Cursor | [Plugin reference](https://cursor.com/docs/reference/plugins) |
 | Gemini CLI | [Extension reference](https://geminicli.com/docs/extensions/reference/), [releases](https://geminicli.com/docs/extensions/releasing/) |
@@ -50,3 +49,19 @@ Bump the version in these files when releasing changes, so clients can refresh c
 - `gemini-extension.json`
 
 `.agents/plugins/marketplace.json` points to the plugin root and has no separate version. Run `just verify-agent-plugin` after updating release metadata.
+
+### Prepare an OpenAI Submission
+
+Keep listing, review, and release information in `plugin.json` under `extensions.com.openai`. Mirror review and publication fields in `.codex-plugin/plugin.json`; its listing fields stay in the top-level `interface`. The portable metadata takes precedence over the compatibility manifest as a whole.
+
+The packaged cases are proposed scenarios, not recorded test results. Before submitting:
+
+- Prepare a dedicated sandbox account with read access to merchant details, checkouts, transactions, and readers. Seed a checkout with reference `sumup-review-existing`; empty transaction and reader lists are valid.
+- Check the deployed MCP tool names, run all five positive and three negative cases, and record the results. Local validation only checks the metadata.
+- Record a walkthrough and add its reviewer-accessible URL as `review.demo_recording_url` in both manifests.
+- Enter reviewer credentials and sign-in steps privately in the dashboard. Reviewers must be able to sign in without MFA, email approval, or private network access. Keep credentials out of the repository and ZIP.
+- Check the imported listing, OAuth setup, commerce declaration, and country availability in the dashboard. Countries and translations are currently omitted; this preserves saved targeting rather than declaring worldwide availability.
+
+Review cases use account queries. Taking payments through MCP is not supported; the skills help developers build payment integrations in their own applications.
+
+Include the root manifest, MCP configuration, skills, and referenced assets in the ZIP. Public submissions cannot include app references (`apps` / `.app.json`) or lifecycle hooks. Complete the dashboard's required attestations before submitting for review.
