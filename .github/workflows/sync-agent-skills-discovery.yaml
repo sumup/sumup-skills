@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - "skills/**"
-      - "scripts/export-agent-skills-discovery.go"
+      - "LICENSE"
       - ".github/workflows/sync-agent-skills-discovery.yaml"
   workflow_dispatch:
 
@@ -39,19 +39,35 @@ jobs:
           path: sumup-developer
           token: ${{ steps.app-token.outputs.token }}
 
-      - name: Setup Go
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+      - name: Setup Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          go-version: "1.26"
-          cache: false
+          node-version-file: sumup-developer/.nvmrc
 
-      - name: Export discovery artifacts
-        working-directory: sumup-skills
+      - name: Setup npm
+        working-directory: sumup-developer
+        run: npm install --global "$(node -p 'require("./package.json").packageManager')"
+
+      - name: Install dependencies
+        working-directory: sumup-developer
+        run: npm ci
+
+      - name: Sync pinned skills
+        working-directory: sumup-developer
+        env:
+          SKILLS_REVISION: ${{ github.sha }}
         run: |
           set -euo pipefail
-          go run scripts/export-agent-skills-discovery.go \
-            --out ../sumup-developer/public/.well-known/agent-skills \
-            --base-url https://developer.sumup.com/.well-known/agent-skills
+          node --input-type=module <<'JS'
+          import { readFileSync, writeFileSync } from "node:fs";
+          const path = "agent-skills.source.json";
+          const source = JSON.parse(readFileSync(path, "utf8"));
+          source.revision = process.env.SKILLS_REVISION;
+          writeFileSync(path, `${JSON.stringify(source, null, 2)}\n`);
+          JS
+          npm run sync:agent-skills -- --source ../sumup-skills
+          # Nimbus generates discovery from skills/; remove legacy static files.
+          rm -rf public/.well-known/agent-skills
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
@@ -60,12 +76,16 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
           branch: chore/sync-agent-skills-discovery
           delete-branch: true
-          title: "chore: sync agent skills discovery artifacts"
-          commit-message: "chore: sync agent skills discovery artifacts"
+          add-paths: |
+            agent-skills.source.json
+            skills/
+            public/.well-known/
+          title: "chore: sync agent skills"
+          commit-message: "chore: sync agent skills"
           body: |
-            Syncs Agent Skills Discovery RFC artifacts from `sumup/sumup-skills`.
+            Updates the pinned source revision and imported `skills/` snapshot from
+            `sumup/sumup-skills` using the portal's sync script.
 
-            Generated files are served from:
-
-            - `/.well-known/agent-skills/index.json`
-            - `/.well-known/agent-skills/*.zip`
+            Nimbus generates `/.well-known/agent-skills/index.json` and skill
+            archives during the portal build. Legacy static discovery artifacts
+            are removed so they cannot conflict with Nimbus's generated files.
